@@ -1,0 +1,16 @@
+"hello"
+'world'
+"""multi
+line"""
+f"interpolated {1 + 2}"
+
+---
+
+(source_file
+  (string)
+  (string)
+  (string)
+  (string
+    (binary_operator
+      (integer)
+      (integer))))

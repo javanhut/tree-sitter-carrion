@@ -1,0 +1,24 @@
+
+{
+  "name": "tree-sitter-carrion",
+  "version": "0.0.1",
+  "description": "Carrion grammar for tree-sitter",
+  "main": "bindings/node",
+  "keywords": [
+    "parser",
+    "lexer",
+    "carrion"
+  ],
+  "author": "Javan Hutson",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.12.1"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.21.0"
+  },
+  "scripts": {
+    "build": "tree-sitter generate",
+    "test": "tree-sitter test"
+  }
+}

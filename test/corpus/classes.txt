@@ -1,0 +1,23 @@
+grim Person:
+    init(name):
+        self.name = name
+
+p = Person("Alice")
+
+---
+
+(source_file
+  (class_definition
+    (identifier)
+    (simple_statement
+      (expression_statement
+        (assignment
+          (call_expression
+            (identifier))
+          (identifier)))))
+  (expression_statement
+    (assignment
+      (identifier)
+      (call_expression
+        (identifier)
+        (string)))))

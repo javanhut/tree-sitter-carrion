@@ -1,0 +1,16 @@
+spell greet():
+    print("Hello")
+
+greet()
+
+---
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameters)
+    (simple_statement
+      (print_statement
+        (string))))
+  (call_expression
+    (identifier)))

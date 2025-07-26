@@ -1,0 +1,9 @@
+print("Hello, World!")
+
+---
+
+(source_file
+  (print_statement
+    (string)
+  )
+)

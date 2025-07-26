@@ -1,0 +1,14 @@
+x = 10
+name = "Alice"
+
+---
+
+(source_file
+  (expression_statement
+    (assignment
+      (identifier)
+      (integer)))
+  (expression_statement
+    (assignment
+      (identifier)
+      (string))))

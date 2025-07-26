@@ -1,0 +1,21 @@
+for i in range(5):
+    print(i)
+
+while True:
+    stop
+
+---
+
+(source_file
+  (for_statement
+    (identifier)
+    (call_expression
+      (identifier)
+      (integer))
+    (simple_statement
+      (print_statement
+        (identifier))))
+  (while_statement
+    (true)
+    (simple_statement
+      (break_statement))))

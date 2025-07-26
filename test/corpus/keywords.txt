@@ -1,0 +1,15 @@
+if True:
+    pass
+else:
+    skip
+
+---
+
+(source_file
+  (if_statement
+    (true)
+    (simple_statement
+      (pass))
+    (else_clause
+      (simple_statement
+        (continue_statement)))))

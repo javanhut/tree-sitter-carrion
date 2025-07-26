@@ -1,0 +1,24 @@
+attempt:
+    1 / 0
+ensnare:
+    print("Error")
+resolve:
+    print("Finally")
+
+---
+
+(source_file
+  (try_statement
+    (simple_statement
+      (expression_statement
+        (binary_operator
+          (integer)
+          (integer))))
+    (except_clause
+      (simple_statement
+        (print_statement
+          (string))))
+    (finally_clause
+      (simple_statement
+        (print_statement
+          (string)))))

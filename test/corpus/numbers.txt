@@ -1,0 +1,14 @@
+42
+3.14
+0b1010
+0o52
+0x2A
+
+---
+
+(source_file
+  (integer)
+  (float)
+  (integer)
+  (integer)
+  (integer))
