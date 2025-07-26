@@ -20,10 +20,6 @@
         "named": true
       },
       {
-        "type": "lambda_expression",
-        "named": true
-      },
-      {
         "type": "unary_operator",
         "named": true
       }
@@ -71,10 +67,6 @@
       },
       {
         "type": "true",
-        "named": true
-      },
-      {
-        "type": "tuple",
         "named": true
       }
     ]
@@ -498,40 +490,6 @@
     }
   },
   {
-    "type": "lambda_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "_expression",
-          "named": true
-        },
-        {
-          "type": "lambda_parameters",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "lambda_parameters",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "list",
     "named": true,
     "fields": {},
@@ -716,21 +674,6 @@
     }
   },
   {
-    "type": "tuple",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "unary_operator",
     "named": true,
     "fields": {},
@@ -909,6 +852,10 @@
     "named": true
   },
   {
+    "type": "elif",
+    "named": false
+  },
+  {
     "type": "else",
     "named": false
   },
@@ -985,10 +932,6 @@
     "named": false
   },
   {
-    "type": "otherwise",
-    "named": false
-  },
-  {
     "type": "pass",
     "named": false
   },
@@ -1030,10 +973,6 @@
   },
   {
     "type": "}",
-    "named": false
-  },
-  {
-    "type": "λ",
     "named": false
   }
 ]

@@ -84,7 +84,7 @@ const PREC = {
       break_statement: $ => prec.left('stop'),
       continue_statement: $ => prec.left('skip'),
 
-      print_statement: $ => seq('print', '(', optional($._expression_list), ')'),
+      print_statement: $ => seq('print', optional($._expression_list)),
 
       if_statement: $ => seq(
         'if',
@@ -96,7 +96,7 @@ const PREC = {
       ),
 
       elif_clause: $ => seq(
-        'otherwise',
+        'elif',
         $._expression,
         ':',
         $._suite
@@ -177,8 +177,7 @@ const PREC = {
         $._primary_expression,
         $.boolean_operator,
         $.binary_operator,
-        $.unary_operator,
-        $.lambda_expression
+        $.unary_operator
       ),
 
       _primary_expression: $ => choice(
@@ -191,7 +190,6 @@ const PREC = {
         $.none,
         $.list,
         $.dictionary,
-        $.tuple,
         $.call_expression
       ),
 
@@ -208,10 +206,7 @@ const PREC = {
       dictionary: $ => seq('{', optional($._key_value_pair_list), '}'),
       _key_value_pair_list: $ => seq($.key_value_pair, repeat(seq(',', $.key_value_pair))),
       key_value_pair: $ => seq($._expression, ':', $._expression),
-      tuple: $ => seq('(', optional($._expression_list), ')'),
 
-      lambda_expression: $ => seq('λ', optional($.lambda_parameters), ':', $._expression),
-      lambda_parameters: $ => seq($.identifier, repeat(seq(',', $.identifier))),
 
       assignment: $ => prec.right(PREC.assign, seq($._primary_expression, '=', $._expression)),
       augmented_assignment: $ => prec.right(PREC.assign, seq(
@@ -255,7 +250,7 @@ const PREC = {
 
       identifier: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
-      keyword_identifier: $ => alias(choice('print', 'exec'), $.identifier),
+      keyword_identifier: $ => alias(choice('print', 'exec', 'len'), $.identifier),
 
       string: $ => choice(
         seq(
@@ -283,21 +278,7 @@ const PREC = {
         )
       ))),
 
-      integer: $ => token(choice(
-        seq(
-          choice('0b', '0B'),
-          /[0-1]+/
-        ),
-        seq(
-          choice('0o', '0O'),
-          /[0-7]+/
-        ),
-        seq(
-          choice('0x', '0X'),
-          /[0-9a-fA-F]+/
-        ),
-        /\d+/
-      )),
+      integer: $ => /\d+/,
 
       float: $ => /\d*\.\d+|\d+\.\d*/,
 
@@ -305,10 +286,7 @@ const PREC = {
       false: $ => 'False',
       none: $ => 'None',
 
-      comment: $ => token(choice(
-        seq('#', /.*/),
-        seq('/\*', /[^*]*\*+([^/*][^*]*\*+)*/, '/')
-      )),
+      comment: $ => token(seq('#', /.*/)),
 
       dotted_name: $ => seq($.identifier, repeat(seq('.', $.identifier))),
 
